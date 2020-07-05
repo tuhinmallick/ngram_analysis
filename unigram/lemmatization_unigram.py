@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
 
-Assignment 1
-Asrita Venkata Mandalam
-2017A7PS1179P
-
-"""
 
 import re
 import nltk
