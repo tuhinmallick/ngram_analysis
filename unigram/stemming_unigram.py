@@ -6,8 +6,7 @@ import string
 
 def cleanhtmlfun(raw):
   cleanit = re.compile('<.*?>')
-  text = re.sub(cleanit, '', raw)
-  return text
+  return re.sub(cleanit, '', raw)
 
 
 
@@ -27,7 +26,7 @@ stemmer=SnowballStemmer("english")
 tokens=[stemmer.stem(word) for word in tokens]
 
 unigrams=nltk.ngrams(tokens,1)
-fdist_unigrams=nltk.FreqDist(unigrams) 
+fdist_unigrams=nltk.FreqDist(unigrams)
 unique_unigrams=fdist_unigrams.B()  #This gives the total number of unique unigrams
 
 
@@ -45,10 +44,7 @@ plt.title('Unigram Frequencies')
 plt.grid()
 plt.show()
 
-size=0
-for freq in Y:
-    size+=freq
-
+size = sum(Y)
 count=0
 most_freq_unigrams=0
 corp_req=0.90*size

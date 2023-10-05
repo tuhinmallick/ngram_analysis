@@ -7,8 +7,7 @@ import string
 
 def cleanhtmlfun(raw):
   cleanit = re.compile('<.*?>')
-  text = re.sub(cleanit, '', raw)
-  return text
+  return re.sub(cleanit, '', raw)
 
 
 
@@ -26,7 +25,7 @@ tokens = [s for s in tokens if s]
 
 
 trigrams=nltk.ngrams(tokens,3)
-fdist_trigrams=nltk.FreqDist(trigrams) 
+fdist_trigrams=nltk.FreqDist(trigrams)
 unique_trigrams=fdist_trigrams.B()  #This gives the total number of unique trigrams
 
 
@@ -44,10 +43,7 @@ plt.title('Trigram Frequencies')
 plt.grid()
 plt.show()
 
-size=0
-for freq in Y:
-    size+=freq
-
+size = sum(Y)
 count=0
 most_freq_trigrams=0
 corp_req=0.70*size

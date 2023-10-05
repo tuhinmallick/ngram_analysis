@@ -7,8 +7,7 @@ import string
 
 def cleanhtmlfun(raw):
   cleanit = re.compile('<.*?>')
-  text = re.sub(cleanit, '', raw)
-  return text
+  return re.sub(cleanit, '', raw)
 
 
 
@@ -40,7 +39,7 @@ for token, tag in pos_tag(tokens):
 
 
 bigrams=nltk.ngrams(tokens2,2)
-fdist_bigrams=nltk.FreqDist(bigrams) 
+fdist_bigrams=nltk.FreqDist(bigrams)
 unique_bigrams=fdist_bigrams.B()    #This gives the total number of unique bigrams
 
 
@@ -58,10 +57,7 @@ plt.title('Bigram Frequencies')
 plt.grid()
 plt.show()
 
-size=0
-for freq in Y:
-    size+=freq
-
+size = sum(Y)
 count=0
 most_freq_bigrams=0
 corp_req=0.80*size
